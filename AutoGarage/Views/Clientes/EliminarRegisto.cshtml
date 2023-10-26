@@ -1,0 +1,33 @@
+﻿@model ClientesModel
+@{
+    ViewData["title"] = "Eliminar Cliente";
+}
+<div class="container d-flex justify-content-center align-items-center py-4">
+    <div class="bg-dark text-white p-4 rounded">
+        <h1 class="display-5 mb-4">Remover Cliente</h1>
+        <h5 class=" text-danger">Deseja mesmo eliminar este cliente??</h5>
+        <p class="">Os dados relativamente a automóveis e serviços associados também serão perdidos!</p>
+        <form method="post" asp-controller="Clientes" asp-action="EliminarRegisto" class="mt-2">
+            <input type="hidden" asp-for="Id" />
+            <div class="mb-3">
+                <label for="Nome" class="form-label">Nome:</label>
+                <input type="text" class="form-control" asp-for="Nome" id="Nome" disabled>
+                <span asp-validation-for="Nome" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label for="Telefone" class="form-label">Contacto:</label>
+                <input type="text" class="form-control" asp-for="Telefone" id="Telefone" disabled>
+                <span asp-validation-for="Telefone" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="Email" class="form-label">Email:</label>
+                <input type="text" class="form-control" asp-for="Email" id="Email" disabled>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-danger">Remover</button>
+            <a class="btn btn-secondary" asp-action="Index">Voltar</a>
+        </form>
+    </div>
+</div

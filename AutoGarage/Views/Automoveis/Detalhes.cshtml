@@ -1,0 +1,77 @@
+﻿@model AutomoveisModel
+@{
+    ViewData["title"] = "Detalhes da Viatura";
+}
+
+<div class="container">
+    <h1>Detalhes da Viatura</h1>
+
+    <table class="table">
+        <tr>
+            <th>Proprietário:</th>
+            <td>@Model.Cliente.Nome <a class="btn btn-secondary" asp-controller="Clientes" asp-action="Detalhes" asp-route-id="@Model.Cliente.Id"><i class="bi bi-three-dots"></i></a></td>
+        </tr>
+        <tr>
+            <th>Ano:</th>
+            <td>@Model.Ano</td>
+        </tr>
+        <tr>
+            <th>Modelo:</th>
+            <td>@Model.Modelo</td>
+        </tr>
+        <tr>
+            <th>Cor:</th>
+            <td>@Model.Cor</td>
+        </tr>
+        <tr>
+            <th>Ano:</th>
+            <td>@Model.Ano</td>
+        </tr>
+        <tr>
+            <th>Matrícula:</th>
+            <td>@Model.Matricula</td>
+        </tr>
+    </table>
+
+    <div class="mb-3">
+        <a class="btn btn-primary" asp-controller="Servicos" asp-action="AdicionarRegisto" asp-route-id="@Model.Id">Adicionar Serviço</a>
+        <a class="btn btn-primary" asp-controller="Automoveis" asp-action="EditarRegisto" asp-route-id="@Model.Id">Editar Automóvel</a>
+        <a class="btn btn-danger" asp-controller="Automoveis" asp-action="EliminarRegisto" asp-route-id="@Model.Id">Eliminar Automóvel</a>
+        <a class="btn btn-secondary" asp-controller="Automoveis" asp-action="Index">Voltar</a>
+    </div>
+
+    <div>
+        <h2>Histórico de serviços</h2>
+        <table class="table">
+            
+            <tr>
+                <th>Tipo</th>
+                <th>Data</th>
+                <th>Descrição</th>
+                <th>Valor</th>
+                <th>Opções</th>
+
+            </tr>
+            @if (Model.Servicos != null)
+            {
+                foreach (var servico in Model.Servicos)
+                {
+                    <tr>
+                        <td>@servico.TipoServico</td>
+                        <td>@servico.DataServico</td>
+                        <td>@servico.DescricaoServico</td>
+                        <td>@servico.CustoServico</td>
+                        <td class="gap-2">
+                            
+                            <a class="btn btn-warning" title="Editar dados do serviço" asp-controller="Servicos" asp-action="EditarRegisto" asp-route-id="@servico.Id"><i class="bi bi-pencil"></i></a>
+                            <a class="btn btn-danger" title="Remover Serviço" asp-controller="Servicos" asp-action="EliminarRegisto" asp-route-id="@servico.Id"><i class="bi bi-trash3"></i></a>
+                        </td>
+                     
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+
+    
+</div>

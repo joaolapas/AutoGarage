@@ -1,0 +1,49 @@
+﻿@model IEnumerable<AutomoveisModel>
+
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Automóveis</h1>
+        
+    </div>
+
+    <table id="Automoveis" class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Matrícula</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Modelo</th>
+                <th scope="col">Ano</th>
+                <th scope="col">Cor</th>
+                <th scope="col">Proprietário</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @if (Model != null)
+            {
+                foreach (var auto in Model)
+                {
+                    <tr>
+                        <th scope="row">@auto.Id</th>
+                        <td>@auto.Matricula</td>
+                        <td>@auto.Marca</td>
+                        <td>@auto.Modelo</td>
+                        <td>@auto.Ano</td>
+                        <td>@auto.Cor</td>
+                        <td>@auto.Cliente.Nome</td>
+                        <td class="d-flex justify-content-end gap-2">
+                            <a class="btn btn-secondary" title="Detalhes de automóvel" asp-controller="Automoveis" asp-action="Detalhes" asp-route-id="@auto.Id"><i class="bi bi-three-dots"></i></a>
+                            <a class="btn btn-success" title="Adicionar novo serviço a este automóvel" asp-controller="Servicos" asp-action="AdicionarRegisto" asp-route-AutomovelId="@auto.Id"><i class="bi bi-file-earmark-plus"></i></a>
+                            <a class="btn btn-warning" title="Editar dados de automóvel" asp-controller="Automoveis" asp-action="EditarRegisto" asp-route-id="@auto.Id"><i class="bi bi-pencil"></i></a>
+                            <a class="btn btn-danger" title="Remover automóvel" asp-controller="Automoveis" asp-action="EliminarRegisto" asp-route-id="@auto.Id"><i class="bi bi-trash3"></i></a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <div class="m-lg-5"></div>
+</div>

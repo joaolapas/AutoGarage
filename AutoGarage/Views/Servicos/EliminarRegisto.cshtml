@@ -1,0 +1,39 @@
+﻿@model ServicosModel
+@{
+    ViewData["title"] = "Eliminar Serviços";
+}
+<div class="container d-flex justify-content-center align-items-center py-4">
+    <div class="bg-dark text-white p-4 rounded">
+        <h1 class="display-5 mb-4">Remover Serviço</h1>
+        <h5 class=" text-danger">Deseja mesmo eliminar este Serviço??</h5>
+        <p class="">Os dados serão perdidos definitivamente!</p>
+        <form method="post" asp-controller="Servicos" asp-action="EliminarRegisto" class="mt-2">
+            <input type="hidden" asp-for="Id" />
+            <div class="mb-3">
+                <label for="TipoServico" class="form-label">Tipo:</label>
+                <input type="text" class="form-control" asp-for="TipoServico" id="TipoServico" disabled>
+                <span asp-validation-for="TipoServico" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label for="DataServico" class="form-label">Data:</label>
+                <input type="text" class="form-control" asp-for="DataServico" id="DataServico" disabled>
+                <span asp-validation-for="DataServico" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="DescricaoServico" class="form-label">Descrição:</label>
+                <input type="text" class="form-control" asp-for="DescricaoServico" id="DescricaoServico" disabled>
+                <span asp-validation-for="DescricaoServico" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="CustoServico" class="form-label">Valor:</label>
+                <input type="text" class="form-control" asp-for="CustoServico" id="CustoServico" disabled>
+                <span asp-validation-for="CustoServico" class="text-danger"></span>
+            </div>
+            
+
+            <button type="submit" class="btn btn-danger">Remover</button>
+            <a class="btn btn-secondary" asp-action="Index">Voltar</a>
+        </form>
+    </div>
+</div

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ServicosModel>
+
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Serviços</h1>
+       
+    </div>
+
+    <table id="Servicos" class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Serviço</th>
+                <th scope="col">Data</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Viatura</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @if (Model != null)
+            {
+                foreach (var servico in Model)
+                {
+                    <tr>
+                        <th scope="row">@servico.Id</th>
+                        <td>@servico.TipoServico</td>
+                        <td>@servico.DataServico</td>
+                        <td>@servico.DescricaoServico</td>
+                        <td>@servico.CustoServico</td>
+                        <td>@servico.Automovel.Matricula</td>
+                        <td class="d-flex justify-content-end gap-2">
+                           
+                            <a class="btn btn-warning" title="Editar serviço" asp-controller="Servicos" asp-action="EditarRegisto" asp-route-id="@servico.Id"><i class="bi bi-pencil"></i></a>
+                            <a class="btn btn-danger" title="Remover serviço" asp-controller="Servicos" asp-action="EliminarRegisto" asp-route-id="@servico.Id"><i class="bi bi-trash3"></i></a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <div class="m-lg-5"></div>
+</div>

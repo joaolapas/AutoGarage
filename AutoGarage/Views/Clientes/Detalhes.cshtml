@@ -1,0 +1,71 @@
+﻿@model ClientesModel
+@{
+    ViewData["title"] = "Detalhes de Cliente";
+}
+
+<div class="container">
+    <h1>Detalhes do Cliente</h1>
+
+    <table class="table">
+        <tr>
+            <th>Nome:</th>
+            <td>@Model.Nome</td>
+        </tr>
+        <tr>
+            <th>Morada:</th>
+            <td>@Model.Morada</td>
+        </tr>
+        <tr>
+            <th>Telefone:</th>
+            <td>@Model.Telefone</td>
+        </tr>
+        <tr>
+            <th>Email:</th>
+            <td>@Model.Email</td>
+        </tr>
+    </table>
+
+    <div class="mb-3">
+        <a class="btn btn-primary" asp-controller="Automoveis" asp-action="AdicionarRegisto" asp-route-id="@Model.Id">Adicionar Automóvel</a>
+        <a class="btn btn-primary" asp-controller="Clientes" asp-action="EditarRegisto" asp-route-id="@Model.Id">Editar Cliente</a>
+        <a class="btn btn-danger" asp-controller="Clientes" asp-action="EliminarRegisto" asp-route-id="@Model.Id">Eliminar Cliente</a>
+        <a class="btn btn-secondary" asp-controller="Clientes" asp-action="Index">Voltar</a>
+    </div>
+
+    <div>
+        <h2>Automóveis do Cliente</h2>
+        <table class="table">
+           
+            <tr>
+                <th>Matrícula</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Ano</th>
+                <th>Cor</th>
+                <th>Opções</th>
+
+            </tr>
+            @if (Model.Automoveis != null)
+            {
+                foreach (var automovel in Model.Automoveis)
+                {
+                    <tr>
+                        <td>@automovel.Matricula</td>
+                        <td>@automovel.Marca</td>
+                        <td>@automovel.Modelo</td>
+                        <td>@automovel.Ano</td>
+                        <td>@automovel.Cor</td>
+                        <td class="gap-2">
+                            <a class="btn btn-secondary" title="Detalhes" asp-controller="Automoveis" asp-action="Detalhes" asp-route-id="@automovel.Id"><i class="bi bi-three-dots"></i></a>
+                            <a class="btn btn-warning" title="Editar dados da viatura" asp-controller="Automoveis" asp-action="EditarRegisto" asp-route-id="@automovel.Id"><i class="bi bi-pencil"></i></a>
+                            <a class="btn btn-danger" title="Remover viatura" asp-controller="Automoveis" asp-action="EliminarRegisto" asp-route-id="@automovel.Id"><i class="bi bi-trash3"></i></a>
+                        </td>
+                     
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+
+    
+</div>

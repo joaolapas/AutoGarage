@@ -1,0 +1,48 @@
+﻿@model AutomoveisModel
+
+@{
+    ViewData["title"] = "Editar Automóvel";
+}
+
+
+<div class="container d-flex justify-content-center align-items-center py-4">
+    <div class="bg-dark text-white p-4 rounded">
+        <h1 class="display-5 mb-4">Editar Automóvel</h1>
+
+        <form method="post" asp-controller="Automoveis" asp-action="EditarRegisto" class="mt-2">
+            <div class="mb-3">
+                <label for="Marca" class="form-label">Marca:</label>
+                <input type="text" class="form-control" asp-for="Marca" id="Marca" required>
+                <span asp-validation-for="Marca" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="Modelo" class="form-label">Modelo:</label>
+                <input type="text" class="form-control" asp-for="Modelo" id="Modelo" required>
+                <span asp-validation-for="Modelo" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="Ano" class="form-label">Ano:</label>
+                <input type="text" class="form-control" asp-for="Ano" id="Ano" required>
+                <span asp-validation-for="Ano" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="Cor" class="form-label">Cor:</label>
+                <input type="text" class="form-control" asp-for="Cor" id="Cor" required>
+                <span asp-validation-for="Cor" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="Matricula" class="form-label">Matricula:</label>
+                <input type="text" class="form-control" asp-for="Matricula" id="Matricula" required>
+                <span asp-validation-for="Matricula" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <input type="hidden" asp-for="Cliente" id="Cliente" value="@Model.ClienteId">
+                <input type="hidden" asp-for="ClienteId" id="ClienteId" value="@Model.ClienteId">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a class="btn btn-secondary" asp-action="Index">Voltar</a>
+        </form>
+
+    </div>
+</div>

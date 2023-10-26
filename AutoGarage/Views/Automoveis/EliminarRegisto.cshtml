@@ -1,0 +1,43 @@
+﻿@model AutomoveisModel
+@{
+    ViewData["title"] = "Eliminar Automóvel";
+}
+<div class="container d-flex justify-content-center align-items-center py-4">
+    <div class="bg-dark text-white p-4 rounded">
+        <h1 class="display-5 mb-4">Remover Automóvel</h1>
+        <h5 class=" text-danger">Deseja mesmo eliminar este Automóvel??</h5>
+        <p class="">Os dados relativamente serviços associados também serão perdidos!</p>
+        <form method="post" asp-controller="Automoveis" asp-action="EliminarRegisto" class="mt-2">
+            <input type="hidden" asp-for="Id" />
+            <div class="mb-3">
+                <label for="Marca" class="form-label">Marca:</label>
+                <input type="text" class="form-control" asp-for="Marca" id="NoMarcame" disabled>
+                <span asp-validation-for="Marca" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label for="Modelo" class="form-label">Modelo:</label>
+                <input type="text" class="form-control" asp-for="Modelo" id="Modelo" disabled>
+                <span asp-validation-for="Modelo" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="Cor" class="form-label">Cor:</label>
+                <input type="text" class="form-control" asp-for="Cor" id="Cor" disabled>
+                <span asp-validation-for="Cor" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="Ano" class="form-label">Ano:</label>
+                <input type="text" class="form-control" asp-for="Ano" id="Ano" disabled>
+                <span asp-validation-for="Ano" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="Matricula" class="form-label">Matrícula:</label>
+                <input type="text" class="form-control" asp-for="Matricula" id="Matricula" disabled>
+                <span asp-validation-for="Matricula" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-danger">Remover</button>
+            <a class="btn btn-secondary" asp-action="Index">Voltar</a>
+        </form>
+    </div>
+</div

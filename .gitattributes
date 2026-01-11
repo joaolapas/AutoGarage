@@ -1,8 +1,11 @@
+#rretirar css da estatistica
+*.css linguist-vendored
 ###############################################################################
 # Set default behavior to automatically normalize line endings.
 ###############################################################################
+
 * text=auto
-* .css linguist-vendored
+
 ###############################################################################
 # Set default behavior for command prompt diff.
 #

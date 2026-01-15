@@ -1,6 +1,5 @@
-#rretirar css da estatistica
-*.css linguist-vendored
-* .html linguist-vendored
+* linguist-language=C#
+
 ###############################################################################
 # Set default behavior to automatically normalize line endings.
 ###############################################################################
